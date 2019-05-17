@@ -13,10 +13,11 @@
   <div class="block">
     <span class="demonstration">默认</span>
     <el-date-picker
-      showCustomFooter="true"
+      :showCustomFooter="true"
       v-model="value1"
       type="date"
-      placeholder="选择日期">
+      :placeholder="placeHolderText"
+      @nodate-change="handleNoDateChange">
     </el-date-picker>
   </div>
   <div class="block">
@@ -35,6 +36,7 @@
   export default {
     data() {
       return {
+        placeHolderText: '选择日期',
         pickerOptions: {
           disabledDate(time) {
             return time.getTime() > Date.now();
@@ -63,6 +65,11 @@
         value1: '',
         value2: '',
       };
+    },
+    methods: {
+      handleNoDateChange(checked){
+        this.placeHolderText = checked ? 'NaN' : '选择日期';
+      }
     }
   };
 </script>

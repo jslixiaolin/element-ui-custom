@@ -118,7 +118,7 @@
         </div>
       </div>
       <div class="el-picker-panel__custom-footer" v-show='customFooter'>
-        <el-checkbox @change='handleChange'>暂无时间点</el-checkbox>
+        <el-checkbox v-model='footerChecked' @change='handleChange'>暂无时间点</el-checkbox>
       </div>
 
       <div
@@ -247,11 +247,12 @@
       handleChange(checked) {
         if (checked) {
           this.$emit('pick', null);
-          // 关闭弹窗，清空值
         }
+        this.$emit('noDate', checked);
       },
 
       emit(value, ...args) {
+        this.footerChecked = false;
         if (!value) {
           this.$emit('pick', value, ...args);
         } else if (Array.isArray(value)) {
@@ -535,6 +536,7 @@
         userInputDate: null,
         userInputTime: null,
         customFooter: false,
+        footerChecked: false
       };
     },
 

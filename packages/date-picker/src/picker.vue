@@ -888,6 +888,9 @@ export default {
           this.refInput[1].focus();
         }
       });
+      this.picker.$on('noDate', checked => {
+        this.$emit('nodate-change', checked);
+      });
     },
 
     unmountPicker() {
