@@ -117,6 +117,9 @@
           </div>
         </div>
       </div>
+      <div class="el-picker-panel__custom-footer">
+        <el-checkbox @change='handleChange'>暂无时间点</el-checkbox>
+      </div>
 
       <div
         class="el-picker-panel__footer"
@@ -165,6 +168,7 @@
   import Locale from 'element-ui/src/mixins/locale';
   import ElInput from 'element-ui/packages/input';
   import ElButton from 'element-ui/packages/button';
+  import ElCheckbox from 'element-ui/packages/checkbox';
   import TimePicker from './time';
   import YearTable from '../basic/year-table';
   import MonthTable from '../basic/month-table';
@@ -238,6 +242,13 @@
       handleClear() {
         this.date = this.getDefaultValue();
         this.$emit('pick', null);
+      },
+
+      handleChange(checked) {
+        if (checked) {
+          this.$emit('pick', null);
+          // 关闭弹窗，清空值
+        }
       },
 
       emit(value, ...args) {
@@ -499,7 +510,7 @@
     },
 
     components: {
-      TimePicker, YearTable, MonthTable, DateTable, ElInput, ElButton
+      TimePicker, YearTable, MonthTable, DateTable, ElInput, ElButton, ElCheckbox
     },
 
     data() {

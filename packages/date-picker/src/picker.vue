@@ -364,6 +364,10 @@ export default {
       type: Boolean,
       default: true
     },
+    showCustomFooter: {
+      type: Boolean,
+      default: true
+    },
     id: {
       default: '',
       validator
