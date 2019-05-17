@@ -117,7 +117,7 @@
           </div>
         </div>
       </div>
-      <div class="el-picker-panel__custom-footer">
+      <div class="el-picker-panel__custom-footer" v-show='customFooter'>
         <el-checkbox @change='handleChange'>暂无时间点</el-checkbox>
       </div>
 
@@ -533,7 +533,8 @@
         format: '',
         arrowControl: false,
         userInputDate: null,
-        userInputTime: null
+        userInputTime: null,
+        customFooter: false,
       };
     },
 

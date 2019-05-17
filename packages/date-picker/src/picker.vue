@@ -366,7 +366,7 @@ export default {
     },
     showCustomFooter: {
       type: Boolean,
-      default: true
+      default: false
     },
     id: {
       default: '',
@@ -835,6 +835,7 @@ export default {
       this.picker.selectionMode = this.selectionMode;
       this.picker.unlinkPanels = this.unlinkPanels;
       this.picker.arrowControl = this.arrowControl || this.timeArrowControl || false;
+      this.picker.customFooter = this.showCustomFooter;
       this.$watch('format', (format) => {
         this.picker.format = format;
       });

@@ -13,6 +13,7 @@
   <div class="block">
     <span class="demonstration">默认</span>
     <el-date-picker
+      showCustomFooter="true"
       v-model="value1"
       type="date"
       placeholder="选择日期">
